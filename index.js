@@ -2,6 +2,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const serverless = require('serverless-http');
 const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 8080;
@@ -45,3 +46,5 @@ app.listen(port, ()=> console.log('Server đang hoạt động! port => ' + port
 app.get('/demo', function (req, res) {
     res.send(req.headers);
 });
+
+module.exports.handler = serverless(app);
