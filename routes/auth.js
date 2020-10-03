@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
     }
     
     //create and assign token
-    const token = jwt.sign({_id: user._id}, qwertyuiopqaz);
+    const token = jwt.sign({_id: user._id}, 'qwertyuiopqaz');
     res.json({token: token, success: true});
    
 });
