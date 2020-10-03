@@ -1,17 +1,12 @@
-//import dotenv
-require('dotenv').config();
-
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const port = process.env.PORT || 8080;
 
 const serverless = require("serverless-http");
 
 
 //connect to DB
-mongoose.connect(
-    process.env.MONGO_URI,
+mongoose.connect(mongodb+srv://giahuy:0r000fNFa26eZTtI@realmcluster.getas.mongodb.net/reactjs?retryWrites=true&w=majority,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true 

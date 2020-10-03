@@ -6,7 +6,7 @@ module.exports = function (req, res, next) {
    
     if(!token) return res.send({success: false, error: 'Token đã hết hạn!'});
     try{
-        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+        const verified = jwt.verify(token, "qwertyuiopqaz");
         req.user = verified;
         next();
     } catch(err){
