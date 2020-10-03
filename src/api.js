@@ -6,7 +6,7 @@ const serverless = require("serverless-http");
 
 
 //connect to DB
-mongoose.connect(mongodb+srv://giahuy:0r000fNFa26eZTtI@realmcluster.getas.mongodb.net/reactjs?retryWrites=true&w=majority,
+mongoose.connect("mongodb+srv://giahuy:0r000fNFa26eZTtI@realmcluster.getas.mongodb.net/reactjs?retryWrites=true&w=majority",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true 
