@@ -47,7 +47,10 @@ router.post('/register', async(req, res) => {
 
 router.post('/login', async (req, res) => {
     // validate the data before is user
-
+    
+    const user = await User.findOne({email:req.body.email});
+    res.json(user);
+    res.json('<br/>');
     return res.json(req.body);
     const validation = loginValidation(req.body);
     if(validation.error){
@@ -55,9 +58,8 @@ router.post('/login', async (req, res) => {
     }
     // check user already
     
-    res.json('<br/>');
-    const user = await User.findOne({email:req.body.email});
-    return res.json(user);
+   
+    
     if(!user){
         return res.json({success: false, error: "Email không tồn tại!", error_code: '102'});
     }
