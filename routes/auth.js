@@ -46,24 +46,25 @@ router.post('/register', async(req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    // validate the data before is user
-    const validation = loginValidation(req.body);
-    if(validation.error){
-        return res.json({success: false, error: validation.error, error_code: '101'});
-    }
-    // check user already
-    const user = await User.findOne({email:req.body.email});
-    if(!user){
-        return res.json({success: false, error: "Email không tồn tại!", error_code: '102'});
-    }
-    const dePass = await bcrypt.compare(req.body.password, user.password);
-    if(!dePass){
-        return res.json({success: false, error: "Mật khẩu không chính xác!", error_code: '103'});
-    }
+    return res.send(req.body);
+    // // validate the data before is user
+    // const validation = loginValidation(req.body);
+    // if(validation.error){
+    //     return res.json({success: false, error: validation.error, error_code: '101'});
+    // }
+    // // check user already
+    // const user = await User.findOne({email:req.body.email});
+    // if(!user){
+    //     return res.json({success: false, error: "Email không tồn tại!", error_code: '102'});
+    // }
+    // const dePass = await bcrypt.compare(req.body.password, user.password);
+    // if(!dePass){
+    //     return res.json({success: false, error: "Mật khẩu không chính xác!", error_code: '103'});
+    // }
     
-    //create and assign token
-    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
-    res.json({token: token, success: true});
+    // //create and assign token
+    // const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+    // res.json({token: token, success: true});
    
 });
 
