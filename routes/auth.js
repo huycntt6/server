@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
     }
     // check user already
     const user = await User.findOne({email:req.body.email});
-    
+
     if(!user){
         return res.json({success: false, error: "Email không tồn tại!", error_code: '102'});
     }
@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
     }
     
     //create and assign token
-    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+    const token = jwt.sign({_id: user._id}, qwertyuiopqaz);
     res.json({token: token, success: true});
    
 });
