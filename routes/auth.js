@@ -52,8 +52,10 @@ router.post('/login', async (req, res) => {
         return res.json({success: false, error: validation.error, error_code: '101'});
     }
     // check user already
+    res.json(req.body);
+    res.json('<br/>');
     const user = await User.findOne({email:req.body.email});
-    return res.send(user);
+    return res.json(user);
     if(!user){
         return res.json({success: false, error: "Email không tồn tại!", error_code: '102'});
     }
