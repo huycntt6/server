@@ -47,10 +47,7 @@ router.post('/register', async(req, res) => {
 
 router.post('/login', async (req, res) => {
     // validate the data before is user
-    const validation = loginValidation(req.body);
-    if(validation.error){
-        return res.json({success: false, error: validation.error, error_code: '101'});
-    }
+    
     // check user already
     res.json(req.body);
     res.json('<br/>');
