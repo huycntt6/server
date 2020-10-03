@@ -10,11 +10,12 @@ const {registerValidation, loginValidation} = require('../modal/validation');
 const verify = require('./verifyToken');
 
 router.get('/', verify, async(req, res) => {
-     const user = await User.findOne({_id: req.user})
+     
      res.json({success: true, user: user});
 });
 router.get('/demo', function (req, res) {
-    res.json('hello ae');
+    const user = await User.find({});
+	res.json(user);
 });
 router.post('/register', async(req, res) => {
     
