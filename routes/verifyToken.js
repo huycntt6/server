@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 module.exports = function (req, res, next) {
     const token = req.header('authorization');
    
-    if(!token) return res.send({success: false, error: token +'ko co j ak'});
+    if(!token) return res.send({success: false, error: 'Token đã hết hạn!'});
     try{
         const verified = jwt.verify(token, process.env.TOKEN_SECRET);
         req.user = verified;
