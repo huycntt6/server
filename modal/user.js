@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
         min: 6
     },
     age: {
-        type: Number
+        type: Number,
+        default: null
     },
     email: {
         type: String,
