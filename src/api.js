@@ -16,14 +16,6 @@ mongoose.connect("mongodb+srv://giahuy:0r000fNFa26eZTtI@realmcluster.getas.mongo
 .catch(err=>console.log('Lỗi Kết nối DB!')
 );
 
-//Route Middlewares
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader("Access-Control-Allow-Headers", '*');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
 
 //import Routes
 const authRoute = require('../routes/auth');
@@ -33,6 +25,15 @@ const postRoute = require('../routes/posts');
 //Middlewares
  
 app.use(express.json());
+
+//Route Middlewares
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 app.use('/.netlify/functions/api/user', authRoute);
 app.use('/.netlify/functions/api/posts', postRoute);
