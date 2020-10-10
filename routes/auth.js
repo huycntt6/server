@@ -13,7 +13,7 @@ router.get('/', verify, async(req, res) => {
      const user = await User.findOne({_id: req.user})
      res.json({success: true, user: user});
 });
-router.post('/demo', async function (req, res) {
+router.get('/demo', async function (req, res) {
 	const user = await User.find({});
     res.json(user);
 });
