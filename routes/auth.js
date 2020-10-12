@@ -13,10 +13,7 @@ router.get('/', verify, async(req, res) => {
      const user = await User.findOne({_id: req.user})
      res.json({success: true, user: user});
 });
-router.get('/demo', async function (req, res) {
-	const user = await User.find({});
-    res.json(user);
-});
+
 router.post('/register', async(req, res) => {
     
     // validate the data before is user
