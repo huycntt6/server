@@ -28,7 +28,7 @@ app.use(express.json());
 
 //Route Middlewares
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://modest-golick-6cc850.netlify.app");
+    res.header("Access-Control-Allow-Origin", "https://client-react-fot.herokuapp.com");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Credentials', true);
