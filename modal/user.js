@@ -1,3 +1,4 @@
+const { number } = require('joi');
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -9,7 +10,7 @@ const userSchema = new mongoose.Schema({
     },
     age: {
         type: Number,
-        default: null
+        default: 0
     },
     email: {
         type: String,
